@@ -1,0 +1,125 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="credits.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <title>CSC - Pro Credits Configuration</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i class="fa fa-cubes"></i> CSC</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="padding-top: 18px"><span id="environmentLabel" class=""></span></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/main/Marketing/"><i class="fa fa-external-link"></i> Legacy CSC</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Pro Credits Configuration</h3>
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <button type="button" id="addProCreditsButton" class="btn btn-primary" style="width: 100%"><i class="fa fa-plus"></i> Add pro credits</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" id="renewProCreditsButton" class="btn btn-primary" style="width: 100%" onClick="RenewProCredits();">Renew pro credits</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" id="removeProCreditsButton" class="btn btn-primary" data-dismiss="modal" style="width: 100%" onClick="RemoveProCredits();">Delete pro credit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 id="activeCouponsHeader">Pro Credits</h4>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <input class="inputShopperId" type="text" id="inputShopperId" placeholder="Shopper Id"/>
+                    </div>
+                    <div class="row">
+                        <button type="button" id="searchProCreditsButton" class="btn btn-primary inputShopperButtonId" data-dismiss="modal">Search</button>
+                    </div>
+                </div>
+                <table class="table table-striped" id="creditsTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Pro Credit Id</th>
+                            <th>Redemption Order Id</th>
+                            <th>Expired Date</th>
+                            <th>Source Type</th>
+                            <th>Credit Value</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="createProCreditsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Pro Credits</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <div class="form-group">
+                                    <label class="control-label">Shopper ID</label>
+                                    <input type="text" class="form-control" name="ShopperId" id="shopperIdField" placeholder="Shopper ID" data-required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Quantity</label>
+                                    <input type="text" class="form-control" name="Quantity" id="proCreditsQuantityField" placeholder="Quantity to be added" data-required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Credit Value in cents</label>
+                                    <input type="text" class="form-control" name="CreditValue" id="creditValueField" placeholder="Credit Value in cents" data-required="true">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="createModalError" class="alert alert-danger" role="alert" style="display: none"></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 100%">Cancel</button>
+                        </div>
+                        <div class="col-sm-5">
+                            <button type="button" id="addNewProCreditsButton" class="btn btn-primary" style="width: 100%">Add Pro Credits</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="credits.js"></script>
+</body>
+</html>
